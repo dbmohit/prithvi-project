@@ -4,15 +4,14 @@
 > **Funded by:** ANRF (Anusandhan National Research Foundation) with MoES (Ministry of Earth Sciences) under **Mission Mausam**  
 > **Program:** AI for Science and Engineering (AI-SE)  
 > **Grant / File Number:** `ANRF/AISE/2025/001231/AIWCM`  
-> **Total Budget:** ₹26.61 Crore (Compute: ₹12.80 Cr &bull; Core/Personnel: ₹13.81 Cr)  
-> **Duration:** 36 Months  
+> **Duration:** 36 Months (2025 – 2028)  
 > **Lead Institution:** Indian Institute of Technology Delhi (Centre for Atmospheric Sciences)  
 
 ---
 
 ## 🌐 Website Overview & Architecture
 
-This repository contains the official project website for the **PRITHVI** initiative, engineered with a modern cosmic atmospheric dark theme, responsive multi-package filtering, an interactive SVG/CSS workflow diagram, and comprehensive consortium profiles.
+This repository contains the official project website for the **PRITHVI** initiative, engineered with a minimalist academic design system using plain flat colors (zero gradients), responsive multi-package filtering, an interactive SVG/CSS workflow diagram, and comprehensive consortium profiles.
 
 ### 📁 Pages & Structure
 
