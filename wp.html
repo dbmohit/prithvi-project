@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work Packages & Workflow | PRITHVI Initiative</title>
+  <meta name="description" content="Work Packages and Research Workflow of PRITHVI: Physics-informed Regional Foundational Model for India.">
+  <link rel="stylesheet" href="assets/css/prithvi.css">
+  <link rel="shortcut icon" href="assets/images/iitd_logo_red.png" type="image/png">
+</head>
+<body>
+
+  <!-- Top Strip -->
+  <aside class="top-gov-banner">
+    <div class="container top-gov-content">
+      <div class="funding-sponsors">
+        <span class="sponsor-badge"><span class="tag">ANRF / MoES</span> Mission Mausam Initiative</span>
+        <span class="sponsor-badge">&bull; <strong>Grant: ₹26.61 Cr</strong></span>
+      </div>
+      <div>
+        <span class="grant-id-badge">File No: ANRF/AISE/2025/001231/AIWCM</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Navigation -->
+  <header class="site-nav-wrapper">
+    <div class="container site-nav">
+      <a href="index.html" class="nav-brand">
+        <div class="brand-icon-emblem">P</div>
+        <div class="brand-titles">
+          <span class="brand-title-main">PRITHVI</span>
+          <span class="brand-title-sub">Work Packages & Workflow</span>
+        </div>
+      </a>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">&#9776;</button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link">Home Overview</a></li>
+        <li><a href="wp.html" class="nav-link active">Work Packages (WP)</a></li>
+        <li><a href="team.html" class="nav-link">Consortium Team</a></li>
+        <li><a href="index.html#benchmarks" class="nav-link">Benchmarks</a></li>
+        <li><a href="index.html#compute" class="nav-link">HPC Architecture</a></li>
+        <li><a href="index.html#contact" class="nav-link nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="section-wrapper" style="padding: 3rem 0 2rem; border-bottom: 1px solid var(--prithvi-navy-border);">
+    <div class="container" style="text-align: center;">
+      <span class="section-eyebrow">Methodology & Execution</span>
+      <h1 class="section-title">Work Packages & Research Workflow</h1>
+      <p class="section-subtitle" style="max-width: 820px; margin: 0 auto;">
+        An integrated research plan spanning physics-informed model development, high-resolution validation, downstream multi-sectoral applications, and national open-science dissemination.
+      </p>
+    </div>
+  </section>
+
+  <!-- Interactive Workflow Diagram -->
+  <main class="main-content container" style="padding: 3rem 1.5rem;">
+    
+    <div class="flowchart-container">
+      <div class="flowchart-toolbar">
+        <div class="flowchart-controls">
+          <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Filter Work Packages:</span>
+          <button class="flowchart-btn active" data-filter="all">All WPs</button>
+          <button class="flowchart-btn" data-filter="wp1">WP1: Foundation Model</button>
+          <button class="flowchart-btn" data-filter="wp2">WP2: Evaluation</button>
+          <button class="flowchart-btn" data-filter="wp3">WP3: Sectoral Apps</button>
+          <button class="flowchart-btn" data-filter="wp4">WP4: Dissemination</button>
+        </div>
+
+        <button class="view-modal-btn" id="openModalBtn">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          View Proposal Schematic (Fig 1)
+        </button>
+      </div>
+
+      <!-- Diagram Flow -->
+      <div class="arch-flow-diagram">
+        
+        <!-- Tier 1 -->
+        <div class="flow-tier">
+          <div class="tier-label-box">
+            <span class="tier-tag">Tier 1: Observations & Datasets</span>
+            <span class="tier-title">High-Resolution Indian Environmental Data</span>
+          </div>
+          <div class="sources-grid">
+            <div class="source-node">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+              <span><strong>IMDAA Reanalysis</strong><br>(0.12° Indian Grid)</span>
+            </div>
+            <div class="source-node">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+              <span><strong>ERA5 Reanalysis</strong><br>(Global Backbone Prior)</span>
+            </div>
+            <div class="source-node">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+              <span><strong>IMD Radar & Gauges</strong><br>(Precipitation & Wind)</span>
+            </div>
+            <div class="source-node">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+              <span><strong>INSAT-3D/3DR & GPM</strong><br>(Cloud & Moisture)</span>
+            </div>
+            <div class="source-node">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span><strong>Mission Mausam</strong><br>(Indigenous Observations)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-connector-line">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M11 4v12.17l-5.59-5.59L4 12l8 8 8-8-1.41-1.41L13 16.17V4h-2z"/></svg>
+        </div>
+
+        <!-- Tier 2 -->
+        <div class="flow-tier">
+          <div class="tier-label-box">
+            <span class="tier-tag" style="background: rgba(0, 229, 163, 0.15); color: var(--prithvi-teal); border-color: rgba(0, 229, 163, 0.3);">Tier 2: Foundation Engine</span>
+            <span class="tier-title">Pinnora Hybrid Physics-AI Integration</span>
+          </div>
+
+          <div style="background: rgba(6, 11, 20, 0.6); border: 1px solid var(--prithvi-navy-border); border-radius: var(--radius-md); padding: 1.25rem; display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 1rem;">
+            <div style="text-align: center;">
+              <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Foundation Backbone</span>
+              <h4 style="color: var(--prithvi-cyan); font-size: 1.1rem;">Microsoft Aurora (0.1°)</h4>
+              <span style="font-size: 0.78rem; color: var(--text-secondary);">3D Swin-Transformer Prior</span>
+            </div>
+            <div style="font-size: 1.5rem; color: var(--prithvi-teal);">&oplus;</div>
+            <div style="text-align: center;">
+              <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Physics Constraints</span>
+              <h4 style="color: var(--prithvi-teal); font-size: 1.1rem;">Wavelet-PINN (W-PINN)</h4>
+              <span style="font-size: 0.78rem; color: var(--text-secondary);">Navier-Stokes Conservation Laws</span>
+            </div>
+            <div style="font-size: 1.5rem; color: var(--prithvi-cyan);">&equals;</div>
+            <div style="text-align: center; background: rgba(0, 210, 255, 0.1); padding: 0.5rem 1.25rem; border-radius: var(--radius-md); border: 1px solid rgba(0, 210, 255, 0.3);">
+              <span style="font-size: 0.75rem; color: var(--prithvi-cyan); text-transform: uppercase; font-weight: 800;">Target Output</span>
+              <h4 style="color: #ffffff; font-size: 1.25rem;">Pinnora Regional Model</h4>
+              <span style="font-size: 0.78rem; color: var(--text-secondary);">~0.1° High-Fidelity Predictions</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-connector-line">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M11 4v12.17l-5.59-5.59L4 12l8 8 8-8-1.41-1.41L13 16.17V4h-2z"/></svg>
+        </div>
+
+        <!-- Tier 3: WPs -->
+        <div class="flow-tier">
+          <div class="tier-label-box">
+            <span class="tier-tag">Tier 3: 4 Work Packages</span>
+            <span class="tier-title">Detailed Institutional Objectives & Deliverables</span>
+          </div>
+
+          <div class="wp-boxes-grid">
+            <div class="wp-box" data-wp="wp1">
+              <div>
+                <div class="wp-badge-top">
+                  <span class="wp-num-badge">WP 1</span>
+                  <span class="wp-lead-inst">Lead: IISc (CDS), IITD (CAS)</span>
+                </div>
+                <h4 class="wp-title-text">Physics-Aware Regional Foundation Model Development</h4>
+                <ul class="wp-highlights-list">
+                  <li>Couple Aurora data-driven emulator with Wavelet-PINN (W-PINN).</li>
+                  <li>Train using Indian datasets (IMDAA, IMD, TRMM/GPM, Mission Mausam).</li>
+                  <li>Incorporate two coupling strategies: fine-tuned hybrid and integrated PINN adaptation.</li>
+                </ul>
+              </div>
+              <div class="wp-output-pill">
+                <strong>Output:</strong>
+                Physics-aware regional foundational model prototype (open v1.0).
+              </div>
+            </div>
+
+            <div class="wp-box wp2" data-wp="wp2">
+              <div>
+                <div class="wp-badge-top">
+                  <span class="wp-num-badge">WP 2</span>
+                  <span class="wp-lead-inst">Lead: IITD (CAS), IISc (CDS)</span>
+                </div>
+                <h4 class="wp-title-text">Model Evaluation & Multiscale Diagnostics</h4>
+                <ul class="wp-highlights-list">
+                  <li>Evaluate model skill for rainfall, winds, temperature, and surface fluxes.</li>
+                  <li>Benchmark Aurora-W-PINN against GraphCast, IFS-HRES, and operational IMD forecasts.</li>
+                  <li>Conduct uncertainty and drift analysis using ensemble and long-lead experiments.</li>
+                </ul>
+              </div>
+              <div class="wp-output-pill">
+                <strong>Output:</strong>
+                Quantified accuracy, stability, and physical realism for Indian conditions.
+              </div>
+            </div>
+
+            <div class="wp-box wp3" data-wp="wp3">
+              <div>
+                <div class="wp-badge-top">
+                  <span class="wp-num-badge">WP 3</span>
+                  <span class="wp-lead-inst">Lead: IISER Mohali, IIT Palakkad</span>
+                </div>
+                <h4 class="wp-title-text">Sectoral Downstream Applications</h4>
+                <ul class="wp-highlights-list">
+                  <li>Himalayan rainfall extremes & hybrid AI flash-flood early warning.</li>
+                  <li>Streamflow & reservoir operation forecasts for the Western Ghats.</li>
+                  <li>Fog & air quality in Indo-Gangetic Plains; solar/wind predictions for grid management.</li>
+                </ul>
+              </div>
+              <div class="wp-output-pill">
+                <strong>Output:</strong>
+                Demonstrated multi-sectoral utility for disaster, water, and energy planning.
+              </div>
+            </div>
+
+            <div class="wp-box wp4" data-wp="wp4">
+              <div>
+                <div class="wp-badge-top">
+                  <span class="wp-num-badge">WP 4</span>
+                  <span class="wp-lead-inst">Lead: IITD, IISER Mohali, IIT BB</span>
+                </div>
+                <h4 class="wp-title-text">Dissemination, Dashboard & Policy Assessment</h4>
+                <ul class="wp-highlights-list">
+                  <li>Build visualization and forecast dashboards for public and policy interfaces.</li>
+                  <li>Develop reproducible training pipelines, data APIs, and open-source releases.</li>
+                  <li>Assess societal and economic benefits under Mission Mausam’s AI-enabled services.</li>
+                </ul>
+              </div>
+              <div class="wp-output-pill">
+                <strong>Output:</strong>
+                Operational readiness of an open, physics-aware AI platform for India.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-connector-line">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M11 4v12.17l-5.59-5.59L4 12l8 8 8-8-1.41-1.41L13 16.17V4h-2z"/></svg>
+        </div>
+
+        <!-- Tier 4 -->
+        <div class="flow-tier">
+          <div class="tier-label-box">
+            <span class="tier-tag" style="background: rgba(255, 190, 11, 0.15); color: var(--prithvi-gold); border-color: rgba(255, 190, 11, 0.3);">Tier 4: National Sectoral Impacts</span>
+            <span class="tier-title">Sectoral Decision Support for Indian Infrastructure</span>
+          </div>
+
+          <div class="sectors-flow-grid">
+            <div class="sector-flow-card">
+              <div class="sector-flow-icon">🏔️</div>
+              <div class="sector-flow-name">Himalayan Extremes</div>
+              <div class="sector-flow-lead">Early warning of flash floods & landslides</div>
+            </div>
+            <div class="sector-flow-card">
+              <div class="sector-flow-icon">💧</div>
+              <div class="sector-flow-name">Hydrology & Dams</div>
+              <div class="sector-flow-lead">Streamflow routing & reservoir control</div>
+            </div>
+            <div class="sector-flow-card">
+              <div class="sector-flow-icon">🌫️</div>
+              <div class="sector-flow-name">Fog & Air Quality</div>
+              <div class="sector-flow-lead">Indo-Gangetic visibility & AQI alerts</div>
+            </div>
+            <div class="sector-flow-card">
+              <div class="sector-flow-icon">⚡</div>
+              <div class="sector-flow-name">Renewable Energy</div>
+              <div class="sector-flow-lead">Solar & wind power grid stability</div>
+            </div>
+            <div class="sector-flow-card">
+              <div class="sector-flow-icon">🌀</div>
+              <div class="sector-flow-name">Cyclone Dynamics</div>
+              <div class="sector-flow-lead">Rapid intensification & landfall tracks</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Modal for Fig 1 -->
+  <div class="modal-overlay" id="schematicModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-window">
+      <button class="modal-close-btn" id="closeModalBtn" aria-label="Close Modal">&times;</button>
+      <h3 id="modalTitle" style="font-size: 1.3rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
+        Fig 1: Sectoral Applications of PRITHVI Regional Foundation Model (Pinnora)
+      </h3>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+        Official schematic excerpt from the proposal (File No: ANRF/AISE/2025/001231/AIWCM, Page 9).
+      </p>
+      <div style="background: #ffffff; padding: 12px; border-radius: var(--radius-md); overflow: hidden;">
+        <img src="assets/images/fig1_original_diagram.png" alt="PRITHVI Proposal Figure 1 Workflow Diagram" style="width: 100%; height: auto;">
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="prithvi-footer">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 PRITHVI Initiative. Funded by ANRF and MoES under Mission Mausam.</div>
+      <div><a href="index.html" style="color: var(--prithvi-cyan);">&larr; Return to Main Project Overview</a></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/prithvi.js"></script>
+</body>
+</html>

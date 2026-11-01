@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRITHVI | Physics-informed Regional Foundational Model for India</title>
+  <meta name="description" content="PRITHVI: Physics-informed RegIonal FoundatioTional High-resolution Model DeVelopment for Indian Sectoral Applications. Funded by ANRF with MoES under Mission Mausam.">
+  <link rel="stylesheet" href="assets/css/prithvi.css">
+  <link rel="shortcut icon" href="assets/images/iitd_logo_red.png" type="image/png">
+</head>
+<body>
+
+  <!-- ========================================================================
+       TOP GOVERNMENT & SPONSORSHIP STRIP
+       ======================================================================== -->
+  <aside class="top-gov-banner">
+    <div class="container top-gov-content">
+      <div class="funding-sponsors">
+        <span class="sponsor-badge">
+          <span class="tag">Funded Project</span>
+          <strong>ANRF</strong> (Anusandhan National Research Foundation)
+        </span>
+        <span class="sponsor-badge">
+          &bull; <strong>MoES</strong> (Ministry of Earth Sciences)
+        </span>
+        <span class="sponsor-badge">
+          &bull; <strong>Mission Mausam</strong> (AI-SE Program)
+        </span>
+      </div>
+
+      <div class="funding-sponsors">
+        <span class="grant-id-badge">Grant No: ANRF/AISE/2025/001231/AIWCM</span>
+        <span class="grant-id-badge" style="color: var(--prithvi-teal); border-color: rgba(0, 229, 163, 0.3);">Grant: ₹26.61 Crore</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       STICKY NAVIGATION BAR
+       ======================================================================== -->
+  <header class="site-nav-wrapper">
+    <div class="container site-nav">
+      <a href="#hero" class="nav-brand">
+        <div class="brand-icon-emblem">P</div>
+        <div class="brand-titles">
+          <span class="brand-title-main">PRITHVI</span>
+          <span class="brand-title-sub">Physics-Informed Regional AI Model</span>
+        </div>
+      </a>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">&#9776;</button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#vision" class="nav-link">Vision</a></li>
+        <li><a href="#workflow" class="nav-link">Architecture & WPs</a></li>
+        <li><a href="#sectors" class="nav-link">Sectoral Impact</a></li>
+        <li><a href="#team" class="nav-link">Consortium & Team</a></li>
+        <li><a href="#benchmarks" class="nav-link">Benchmarks</a></li>
+        <li><a href="#compute" class="nav-link">HPC Infrastructure</a></li>
+        <li><a href="#contact" class="nav-link nav-cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       HERO BANNER SECTION
+       ======================================================================== -->
+  <section class="hero-section" id="hero">
+    <div class="hero-glow-back"></div>
+    <div class="container hero-content">
+      
+      <div class="hero-meta-strip">
+        <span class="pulse-dot"></span>
+        <span>AI for Science & Engineering &bull; Weather & Climate Modeling Initiative</span>
+      </div>
+
+      <h1 class="hero-acronym">PRITHVI</h1>
+      <h2 class="hero-full-title">
+        Physics-informed RegIonal FoundatioTional High-resolution Model DeVelopment for Indian Sectoral Applications
+      </h2>
+      
+      <p class="hero-subtitle">
+        Bridging planetary-scale foundation models (Microsoft Aurora) with Wavelet-based Physics-Informed Neural Networks (W-PINNs) to build India’s first operational, physically consistent ~0.1° regional Earth system foundation model (<strong style="color: var(--prithvi-teal);">Pinnora</strong>).
+      </p>
+
+      <div class="hero-actions">
+        <a href="#workflow" class="btn-primary">
+          Explore WP Workflow Diagram &darr;
+        </a>
+        <a href="#team" class="btn-secondary">
+          Consortium Investigators &rarr;
+        </a>
+      </div>
+
+      <!-- Stat Badges -->
+      <div class="hero-stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">₹26.61 Cr</div>
+          <div class="stat-label">Total Project Grant</div>
+          <div class="stat-subtext">Compute: ₹12.80 Cr &bull; Core: ₹13.81 Cr</div>
+        </div>
+
+        <div class="stat-card teal">
+          <div class="stat-value">~0.1° (~10 km)</div>
+          <div class="stat-label">Downscaled Resolution</div>
+          <div class="stat-subtext">Domain: Indian Subcontinent & Oceans</div>
+        </div>
+
+        <div class="stat-card gold">
+          <div class="stat-value">900,000</div>
+          <div class="stat-label">GPU Hours (A100/H100)</div>
+          <div class="stat-subtext">On IndiaAI Platform + 7M CPU Core-hrs NSM</div>
+        </div>
+
+        <div class="stat-card coral">
+          <div class="stat-value">36 Months</div>
+          <div class="stat-label">Project Timeline</div>
+          <div class="stat-subtext">3 Phases: TRL 3&rarr;4 to TRL 7&rarr;8</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       VISION & SCIENTIFIC RATIONALE
+       ======================================================================== -->
+  <section class="section-wrapper" id="vision">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Scientific Motivation</span>
+        <h2 class="section-title">Why Physics-Informed Regional AI?</h2>
+        <p class="section-subtitle">
+          Global atmospheric foundation models represent a quantum leap in weather forecasting speed, but lack physical law enforcement over complex tropical and orographic domains like the Indian monsoon.
+        </p>
+      </div>
+
+      <div class="engine-core-card">
+        
+        <div class="engine-pillar">
+          <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">⚠️</div>
+          <h4>Pure Data-Driven Models</h4>
+          <p>
+            Models like Aurora, GraphCast, and Pangu-Weather are trained on global reanalysis (ERA5). Over India, they experience dynamical drift, non-conservation of moisture/energy, and hallucinate unphysical extremes during the monsoon.
+          </p>
+        </div>
+
+        <div class="engine-center">
+          <span style="font-size: 0.78rem; text-transform: uppercase; font-weight: 800; color: var(--prithvi-cyan); letter-spacing: 1px;">The Breakthrough</span>
+          <div class="core-name">Pinnora (PINN + Aurora)</div>
+          <p class="core-tagline">
+            Coupling Microsoft Aurora's 3D Swin-Transformer backbone with <strong>Wavelet-PINNs (W-PINNs)</strong>. Analytical wavelet derivatives enforce Navier-Stokes continuous PDEs without automatic differentiation memory overheads.
+          </p>
+        </div>
+
+        <div class="engine-pillar">
+          <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🛡️</div>
+          <h4>Physics-Guaranteed Fidelity</h4>
+          <p>
+            Guarantees strict conservation of mass, momentum, and moisture. Delivers 2&times; to 3&times; faster training convergence, stable multi-week lead times, and seamless downscaling with IMD/IMDAA radar and satellite datasets.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       WORK PACKAGES & INTERACTIVE FLOWCHART DIAGRAM
+       ======================================================================== -->
+  <section class="section-wrapper" id="workflow" style="background: rgba(11, 21, 40, 0.4);">
+    <div class="container">
+      
+      <div class="section-head">
+        <span class="section-eyebrow">Workflow & Methodology Architecture</span>
+        <h2 class="section-title">Interactive Work Package (WP) Workflow</h2>
+        <p class="section-subtitle">
+          An end-to-end multi-tier research architecture linking indigenous Indian data assets, the core Pinnora scientific engine, 4 synchronized Work Packages, and multi-sectoral national services.
+        </p>
+      </div>
+
+      <div class="flowchart-container">
+        
+        <!-- Interactive Controls -->
+        <div class="flowchart-toolbar">
+          <div class="flowchart-controls">
+            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; margin-right: 0.5rem;">Filter by Package:</span>
+            <button class="flowchart-btn active" data-filter="all">All WPs</button>
+            <button class="flowchart-btn" data-filter="wp1">WP1: Foundation Model</button>
+            <button class="flowchart-btn" data-filter="wp2">WP2: Evaluation</button>
+            <button class="flowchart-btn" data-filter="wp3">WP3: Sectoral Apps</button>
+            <button class="flowchart-btn" data-filter="wp4">WP4: Dissemination</button>
+          </div>
+
+          <button class="view-modal-btn" id="openModalBtn">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+            View Original Proposal Schematic (Fig 1)
+          </button>
+        </div>
+
+        <!-- The Flowchart Diagram -->
+        <div class="arch-flow-diagram">
+          
+          <!-- TIER 1: DATA INGESTION -->
+          <div class="flow-tier">
+            <div class="tier-label-box">
+              <span class="tier-tag">Tier 1: Data Ingestion</span>
+              <span class="tier-title">High-Resolution Indian Observational & Reanalysis Streams</span>
+            </div>
+            
+            <div class="sources-grid">
+              <div class="source-node">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+                <span><strong>IMDAA Reanalysis</strong><br>(0.12° Regional Grid)</span>
+              </div>
+              <div class="source-node">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                <span><strong>ERA5 Reanalysis</strong><br>(Global Baseline Prior)</span>
+              </div>
+              <div class="source-node">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+                <span><strong>IMD Doppler Radar</strong><br>& Gridded Rain Gauges</span>
+              </div>
+              <div class="source-node">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+                <span><strong>INSAT-3D/3DR</strong><br>& Himawari Satellites</span>
+              </div>
+              <div class="source-node">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span><strong>Mission Mausam</strong><br>Indigenous Testbed Data</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONNECTING ARROWS -->
+          <div class="flow-connector-line">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M11 4v12.17l-5.59-5.59L4 12l8 8 8-8-1.41-1.41L13 16.17V4h-2z"/></svg>
+          </div>
+
+          <!-- TIER 2: SCIENTIFIC ENGINE (PINNORA) -->
+          <div class="flow-tier">
+            <div class="tier-label-box">
+              <span class="tier-tag" style="background: rgba(0, 229, 163, 0.15); color: var(--prithvi-teal); border-color: rgba(0, 229, 163, 0.3);">Tier 2: Scientific Core Engine</span>
+              <span class="tier-title">Physics-Aware Hybrid Foundation Architecture</span>
+            </div>
+
+            <div style="background: rgba(6, 11, 20, 0.6); border: 1px solid var(--prithvi-navy-border); border-radius: var(--radius-md); padding: 1.25rem; display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 1rem;">
+              <div style="text-align: center;">
+                <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Pretrained Prior</span>
+                <h4 style="color: var(--prithvi-cyan); font-size: 1.1rem;">Microsoft Aurora Backbone</h4>
+                <span style="font-size: 0.78rem; color: var(--text-secondary);">3D Swin-Transformer, 0.1° Prior</span>
+              </div>
+
+              <div style="font-size: 1.5rem; color: var(--prithvi-teal);">&oplus;</div>
+
+              <div style="text-align: center;">
+                <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Conservation Engine</span>
+                <h4 style="color: var(--prithvi-teal); font-size: 1.1rem;">Wavelet-PINN (W-PINN)</h4>
+                <span style="font-size: 0.78rem; color: var(--text-secondary);">Navier-Stokes Analytical Derivatives</span>
+              </div>
+
+              <div style="font-size: 1.5rem; color: var(--prithvi-cyan);">&equals;</div>
+
+              <div style="text-align: center; background: rgba(0, 210, 255, 0.1); padding: 0.5rem 1.25rem; border-radius: var(--radius-md); border: 1px solid rgba(0, 210, 255, 0.3);">
+                <span style="font-size: 0.75rem; color: var(--prithvi-cyan); text-transform: uppercase; font-weight: 800;">Target Regional Model</span>
+                <h4 style="color: #ffffff; font-size: 1.25rem;">Pinnora Regional v1.0</h4>
+                <span style="font-size: 0.78rem; color: var(--text-secondary);">Open-Science Engine for India</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONNECTING ARROWS -->
+          <div class="flow-connector-line">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M11 4v12.17l-5.59-5.59L4 12l8 8 8-8-1.41-1.41L13 16.17V4h-2z"/></svg>
+          </div>
+
+          <!-- TIER 3: WORK PACKAGES (WP1 TO WP4) -->
+          <div class="flow-tier">
+            <div class="tier-label-box">
+              <span class="tier-tag">Tier 3: 4 Coordinated Work Packages</span>
+              <span class="tier-title">Execution Pillars & Institutional Responsibilities</span>
+            </div>
+
+            <div class="wp-boxes-grid">
+              
+              <!-- WP1 -->
+              <div class="wp-box" data-wp="wp1">
+                <div>
+                  <div class="wp-badge-top">
+                    <span class="wp-num-badge">WP 1</span>
+                    <span class="wp-lead-inst">Lead: IISc (CDS), IITD (CAS)</span>
+                  </div>
+                  <h4 class="wp-title-text">Physics-Aware Regional Foundation Model Development</h4>
+                  <ul class="wp-highlights-list">
+                    <li>Couple Aurora’s data-driven emulator with Wavelet-PINN (W-PINN).</li>
+                    <li>Fine-tune using Indian datasets (IMDAA, IMD, TRMM/GPM, Mission Mausam).</li>
+                    <li>Enforce continuous mass, momentum, and moisture conservation laws.</li>
+                  </ul>
+                </div>
+                <div class="wp-output-pill">
+                  <strong>Deliverable:</strong>
+                  Physics-aware regional foundational model prototype (Pinnora open v1.0).
+                </div>
+              </div>
+
+              <!-- WP2 -->
+              <div class="wp-box wp2" data-wp="wp2">
+                <div>
+                  <div class="wp-badge-top">
+                    <span class="wp-num-badge">WP 2</span>
+                    <span class="wp-lead-inst">Lead: IITD (CAS), IISc (CDS)</span>
+                  </div>
+                  <h4 class="wp-title-text">Model Evaluation, Diagnostics & Uncertainty</h4>
+                  <ul class="wp-highlights-list">
+                    <li>Evaluate skill for rainfall, winds, temperature, and surface flux tensors.</li>
+                    <li>Benchmark Aurora-W-PINN vs. GraphCast, IFS-HRES, & operational IMD models.</li>
+                    <li>Quantify dynamical drift reduction and stability in long-lead ensemble runs.</li>
+                  </ul>
+                </div>
+                <div class="wp-output-pill">
+                  <strong>Deliverable:</strong>
+                  Diagnostic benchmark reports, error attribution matrices, & stability profiles.
+                </div>
+              </div>
+
+              <!-- WP3 -->
+              <div class="wp-box wp3" data-wp="wp3">
+                <div>
+                  <div class="wp-badge-top">
+                    <span class="wp-num-badge">WP 3</span>
+                    <span class="wp-lead-inst">Lead: IISER Mohali, IIT Palakkad</span>
+                  </div>
+                  <h4 class="wp-title-text">Cross-Sectoral Downstream Applications</h4>
+                  <ul class="wp-highlights-list">
+                    <li>Himalayan extremes & hybrid AI flash-flood early warning systems.</li>
+                    <li>Streamflow & reservoir operation forecasts over Western Ghats.</li>
+                    <li>Indo-Gangetic air quality & fog guidance; solar/wind grid predictions.</li>
+                  </ul>
+                </div>
+                <div class="wp-output-pill">
+                  <strong>Deliverable:</strong>
+                  High-fidelity sectoral decision-support modules across Indian domains.
+                </div>
+              </div>
+
+              <!-- WP4 -->
+              <div class="wp-box wp4" data-wp="wp4">
+                <div>
+                  <div class="wp-badge-top">
+                    <span class="wp-num-badge">WP 4</span>
+                    <span class="wp-lead-inst">Lead: IITD, IISER Mohali, IIT BB</span>
+                  </div>
+                  <h4 class="wp-title-text">Dissemination, Dashboard & Policy Assessment</h4>
+                  <ul class="wp-highlights-list">
+                    <li>Build public & policy visualization dashboards under Mission Mausam.</li>
+                    <li>Develop reproducible training pipelines, data APIs, & open-source code.</li>
+                    <li>Assess societal, economic, and disaster resilience benefits pan-India.</li>
+                  </ul>
+                </div>
+                <div class="wp-output-pill">
+                  <strong>Deliverable:</strong>
+                  Operational open-science platform, web dashboards & policy advisories.
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- CONNECTING ARROWS -->
+          <div class="flow-connector-line">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M11 4v12.17l-5.59-5.59L4 12l8 8 8-8-1.41-1.41L13 16.17V4h-2z"/></svg>
+          </div>
+
+          <!-- TIER 4: SECTORAL APPLICATION ENGINES -->
+          <div class="flow-tier">
+            <div class="tier-label-box">
+              <span class="tier-tag" style="background: rgba(255, 190, 11, 0.15); color: var(--prithvi-gold); border-color: rgba(255, 190, 11, 0.3);">Tier 4: Downstream Multi-Sectoral Impact Engines</span>
+              <span class="tier-title">Empowering National Preparedness & Mission Mausam Goals</span>
+            </div>
+
+            <div class="sectors-flow-grid">
+              
+              <div class="sector-flow-card">
+                <div class="sector-flow-icon">🏔️</div>
+                <div class="sector-flow-name">Himalayan Extremes</div>
+                <div class="sector-flow-lead">Flash-flood early warning, cloudburst detection (IISER Mohali, IITD)</div>
+              </div>
+
+              <div class="sector-flow-card">
+                <div class="sector-flow-icon">💧</div>
+                <div class="sector-flow-name">Hydrology & Dams</div>
+                <div class="sector-flow-lead">Streamflow routing & reservoir control in Western Ghats (IIT Palakkad)</div>
+              </div>
+
+              <div class="sector-flow-card">
+                <div class="sector-flow-icon">🌫️</div>
+                <div class="sector-flow-name">Fog & Air Quality</div>
+                <div class="sector-flow-lead">Indo-Gangetic plain urban aerosol & visibility forecasting (IITD CAS)</div>
+              </div>
+
+              <div class="sector-flow-card">
+                <div class="sector-flow-icon">⚡</div>
+                <div class="sector-flow-name">Renewable Energy</div>
+                <div class="sector-flow-lead">Short-to-medium range solar & wind grid stability (IITD DESE)</div>
+              </div>
+
+              <div class="sector-flow-card">
+                <div class="sector-flow-icon">🌀</div>
+                <div class="sector-flow-name">Cyclone Dynamics</div>
+                <div class="sector-flow-lead">Bay of Bengal & Arabian Sea track & rapid intensification (IITD CAS)</div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SECTORAL IMPACT & APPLICATIONS
+       ======================================================================== -->
+  <section class="section-wrapper" id="sectors">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">National Resilience</span>
+        <h2 class="section-title">High-Resolution Sectoral Applications</h2>
+        <p class="section-subtitle">
+          PRITHVI is engineered to directly serve India's socio-economic priorities under Mission Mausam, transforming high-resolution atmospheric physics into action.
+        </p>
+      </div>
+
+      <div class="collab-cards-grid">
+        
+        <div class="collab-card">
+          <div class="collab-icon">🏔️</div>
+          <div class="collab-info">
+            <h4>Himalayan Rainfall Extremes & Cloudbursts</h4>
+            <div class="collab-role">Lead: IISER Mohali &bull; IIT Delhi (CAS)</div>
+            <p>
+              High-resolution ensemble downscaling (~0.1° to convection-permitting nests) to detect orographic lifting, moisture convergence, and rapid localized precipitation triggers before catastrophic flash floods occur.
+            </p>
+          </div>
+        </div>
+
+        <div class="collab-card">
+          <div class="collab-icon">🌊</div>
+          <div class="collab-info">
+            <h4>Hydrology & Smart Reservoir Management</h4>
+            <div class="collab-role">Lead: IIT Palakkad &bull; IIT Delhi (CAS)</div>
+            <p>
+              Coupling Pinnora precipitation outputs with WRF-Hydro routing models across Western Ghats river basins. Achieves Nash-Sutcliffe Efficiency (NSE) > 0.8 for proactive reservoir inflow forecasting and flood prevention.
+            </p>
+          </div>
+        </div>
+
+        <div class="collab-card">
+          <div class="collab-icon">🌫️</div>
+          <div class="collab-info">
+            <h4>Fog & Urban Air Quality (AQI)</h4>
+            <div class="collab-role">Lead: IIT Delhi (Centre for Atmospheric Sciences)</div>
+            <p>
+              Physics-constrained boundary layer and aerosol-radiation parameterization tailored for the Indo-Gangetic Plains. Delivers winter fog formation forecasts and multi-day hazardous particulate guidance (POD > 0.85).
+            </p>
+          </div>
+        </div>
+
+        <div class="collab-card">
+          <div class="collab-icon">☀️</div>
+          <div class="collab-info">
+            <h4>Renewable Solar & Wind Grid Integration</h4>
+            <div class="collab-role">Lead: IIT Delhi (DESE) &bull; Prof. Ravi Kumar K</div>
+            <p>
+              Physics-aware solar irradiance (WRF-Solar) and planetary boundary-layer wind field forecasting. Reduces Mean Absolute Error (MAE) under 10% for grid balancing and India’s decarbonization targets.
+            </p>
+          </div>
+        </div>
+
+        <div class="collab-card">
+          <div class="collab-icon">🌀</div>
+          <div class="collab-info">
+            <h4>Tropical Cyclones & Rapid Intensification (RI)</h4>
+            <div class="collab-role">Lead: IIT Delhi (CAS) &bull; Dr. Sarvesh Kumar Dubey</div>
+            <p>
+              Leveraging spectral scale energetics and vortex-scale asymmetry diagnostics to predict sudden track deviations and rapid intensity escalation in Bay of Bengal cyclones, extending early-warning lead times by 48–72 hours.
+            </p>
+          </div>
+        </div>
+
+        <div class="collab-card">
+          <div class="collab-icon">📡</div>
+          <div class="collab-info">
+            <h4>Interactive Public & Policy Dashboards</h4>
+            <div class="collab-role">Lead: IIT Delhi &bull; IIT Bhubaneswar &bull; IISER Mohali</div>
+            <p>
+              Open APIs, real-time spatial visualizers, and FAIR-compliant data distribution pipelines integrated into national meteorological and disaster-management infrastructure (NDMA, IMD, Mission Mausam).
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CONSORTIUM & TEAM (LEAD PI, CO-PIS, COLLABORATORS, INDUSTRY)
+       ======================================================================== -->
+  <section class="section-wrapper" id="team" style="background: rgba(11, 21, 40, 0.4);">
+    <div class="container">
+      
+      <div class="section-head">
+        <span class="section-eyebrow">Project Leadership & Consortium</span>
+        <h2 class="section-title">Principal Investigators & Collaborating Partners</h2>
+        <p class="section-subtitle">
+          A world-class multi-institutional team uniting leading atmospheric scientists, computational mathematicians, HPC engineers, and pioneering industry partners.
+        </p>
+      </div>
+
+      <!-- Lead PI Hero Card -->
+      <div class="team-card lead-pi">
+        <div class="team-avatar-box">
+          <img src="assets/images/team/sarvesh_dubey.jpg" alt="Dr. Sarvesh Kumar Dubey">
+        </div>
+        <div>
+          <span class="team-role-badge lead">Lead Principal Investigator (PI)</span>
+          <h3 class="team-name" style="font-size: 1.6rem;">Dr. Sarvesh Kumar Dubey</h3>
+          <p class="team-title" style="font-size: 1rem; color: #ffffff;">Associate Professor &bull; Centre for Atmospheric Sciences (CAS)</p>
+          <p class="team-institution" style="color: var(--prithvi-cyan); font-size: 0.95rem;">Indian Institute of Technology Delhi</p>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin: 0.75rem 0 1rem;">
+            Specialist in numerical atmospheric model development, dynamical cores, spectral scale energetics, and physics-informed AI frameworks. Leading the overall architecture, PINN-Aurora fine-tuning, and tropical meteorology integration for PRITHVI.
+          </p>
+          <a href="mailto:skdubey@cas.iitd.ac.in" class="team-email">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            skdubey@cas.iitd.ac.in &bull; +91 9359539161
+          </a>
+        </div>
+      </div>
+
+      <!-- Co-PIs Grid -->
+      <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 1.5rem; text-align: center;">
+        Co-Principal Investigators (Co-PIs)
+      </h3>
+
+      <div class="team-grid">
+        
+        <!-- Co-PI 1: Dr. Srinivasa Kannan -->
+        <div class="team-card">
+          <div class="team-avatar-box">
+            <img src="assets/images/team/srinivasa_kannan.png" alt="Dr. Srinivasa Kannan">
+          </div>
+          <span class="team-role-badge">Co-Principal Investigator</span>
+          <h4 class="team-name">Dr. Srinivasa Kannan</h4>
+          <p class="team-title">Associate Professor</p>
+          <p class="team-institution">Mechanical Sciences, IIT Bhubaneswar</p>
+          <a href="mailto:sramanujam@iitbbs.ac.in" class="team-email">
+            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            sramanujam@iitbbs.ac.in
+          </a>
+        </div>
+
+        <!-- Co-PI 2: Dr. Ratikanta Behera -->
+        <div class="team-card">
+          <div class="team-avatar-box">
+            <img src="assets/images/team/ratikanta_behera.png" alt="Dr. Ratikanta Behera">
+          </div>
+          <span class="team-role-badge">Co-Principal Investigator</span>
+          <h4 class="team-name">Dr. Ratikanta Behera</h4>
+          <p class="team-title">Assistant Professor</p>
+          <p class="team-institution">Computational & Data Sciences (CDS), IISc Bengaluru</p>
+          <a href="mailto:ratikanta@iisc.ac.in" class="team-email">
+            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            ratikanta@iisc.ac.in
+          </a>
+        </div>
+
+        <!-- Co-PI 3: Dr. Raju Attada -->
+        <div class="team-card">
+          <div class="team-avatar-box">
+            <img src="assets/images/team/raju_attada.png" alt="Dr. Raju Attada">
+          </div>
+          <span class="team-role-badge">Co-Principal Investigator</span>
+          <h4 class="team-name">Dr. Raju Attada</h4>
+          <p class="team-title">Associate Professor</p>
+          <p class="team-institution">Earth & Environmental Sciences, IISER Mohali</p>
+          <a href="mailto:rajuattada@gmail.com" class="team-email">
+            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            rajuattada@gmail.com
+          </a>
+        </div>
+
+        <!-- Co-PI 4: Dr. Subhasis Mitra -->
+        <div class="team-card">
+          <div class="team-avatar-box">
+            <img src="assets/images/team/subhasis_mitra.png" alt="Dr. Subhasis Mitra">
+          </div>
+          <span class="team-role-badge">Co-Principal Investigator</span>
+          <h4 class="team-name">Dr. Subhasis Mitra</h4>
+          <p class="team-title">Assistant Professor</p>
+          <p class="team-institution">Civil Engineering, IIT Palakkad</p>
+          <a href="mailto:smitra@iitpkd.ac.in" class="team-email">
+            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            smitra@iitpkd.ac.in
+          </a>
+        </div>
+
+        <!-- Co-PI 5: Dr. Ravi Kunchala -->
+        <div class="team-card">
+          <div class="team-avatar-box">
+            <img src="assets/images/team/ravi_kunchala.png" alt="Dr. Ravi Kunchala">
+          </div>
+          <span class="team-role-badge">Co-Principal Investigator</span>
+          <h4 class="team-name">Dr. Ravi Kunchala</h4>
+          <p class="team-title">Associate Professor</p>
+          <p class="team-institution">Centre for Atmospheric Sciences, IIT Delhi</p>
+          <a href="mailto:rkkunchala@cas.iitd.ac.in" class="team-email">
+            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            rkkunchala@cas.iitd.ac.in
+          </a>
+        </div>
+
+        <!-- Co-PI 6: Dr. Abhishek Savita -->
+        <div class="team-card">
+          <div class="team-avatar-box">
+            <img src="assets/images/team/abhishek_savita.png" alt="Dr. Abhishek Savita">
+          </div>
+          <span class="team-role-badge">Co-Principal Investigator</span>
+          <h4 class="team-name">Dr. Abhishek Savita</h4>
+          <p class="team-title">Assistant Professor</p>
+          <p class="team-institution">Centre for Atmospheric Sciences, IIT Delhi</p>
+          <a href="mailto:asavita@iitd.ac.in" class="team-email">
+            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            asavita@iitd.ac.in
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Collaborators & Industry Partners -->
+      <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 3rem 0 1.5rem; text-align: center;">
+        Key Collaborators & Industry Partners
+      </h3>
+
+      <div class="collab-cards-grid">
+        
+        <div class="collab-card">
+          <div class="collab-icon">⚡</div>
+          <div class="collab-info">
+            <h4>Prof. Ravi Kumar K</h4>
+            <div class="collab-role">Key Collaborator &bull; Energy Science (DESE), IIT Delhi</div>
+            <p>
+              Leading the solar and renewable energy forecasting component of PRITHVI. Indispensable expertise in solar radiation parameterization, PV plant modeling, and energy grid stability.
+            </p>
+          </div>
+        </div>
+
+        <div class="collab-card">
+          <div class="collab-icon">🟢</div>
+          <div class="collab-info">
+            <h4>Dr. Manish Modani & NVIDIA</h4>
+            <div class="collab-role">Industry Partner &bull; Principal Solution Architect, NVIDIA</div>
+            <p>
+              Collaboration with NVIDIA’s Earth-2 platform teams, bringing pioneering expertise in generative super-resolution downscaling (CorrDiff, cBottle, and FourCastNet) and CUDA-accelerated model deployment.
+            </p>
+          </div>
+        </div>
+
+        <div class="collab-card">
+          <div class="collab-icon">🌐</div>
+          <div class="collab-info">
+            <h4>Dr. Satish Kumar & EyeClimate Inc.</h4>
+            <div class="collab-role">Industry Partner &bull; CEO, EyeClimate Inc. (Palo Alto, USA)</div>
+            <p>
+              AI-driven climate analytics and emissions mitigation partner. Developers of MethaneMapper AI platform, supporting translation of PRITHVI’s climate predictions into actionable business and municipal insights.
+            </p>
+          </div>
+        </div>
+
+        <div class="collab-card">
+          <div class="collab-icon">☁️</div>
+          <div class="collab-info">
+            <h4>Microsoft Research</h4>
+            <div class="collab-role">Scientific Architecture Partner &bull; Aurora Team</div>
+            <p>
+              Technical collaboration on Microsoft’s state-of-the-art Aurora atmospheric foundation model, supporting fine-tuning on high-resolution Indian domain data and W-PINN transfer learning.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TECHNICAL EFFICACY BENCHMARKS & MILESTONES
+       ======================================================================== -->
+  <section class="section-wrapper" id="benchmarks">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Quantitative Targets</span>
+        <h2 class="section-title">Technical Efficacy Benchmarks</h2>
+        <p class="section-subtitle">
+          PRITHVI establishes measurable performance milestones across regional forecast accuracy, dynamical lead times, and sectoral decision thresholds.
+        </p>
+      </div>
+
+      <div class="benchmarks-table-wrapper">
+        <table class="benchmarks-table">
+          <thead>
+            <tr>
+              <th>Scientific Domain</th>
+              <th>Target Metric</th>
+              <th>Expected Impact Outcome</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color: #fff;">Regional Forecast Skill</strong></td>
+              <td class="metric-highlight">&ge; 20% RMSE improvement over Aurora baseline</td>
+              <td>Significantly superior prediction of Indian summer monsoon, mesoscale convective systems, and depressions.</td>
+            </tr>
+            <tr>
+              <td><strong style="color: #fff;">Lead Time & Stability</strong></td>
+              <td class="metric-highlight">+2 to 3 days usable lead time; reduced drift</td>
+              <td>Elimination of systematic dynamical drift; reliable early warnings for extreme convective events.</td>
+            </tr>
+            <tr>
+              <td><strong style="color: #fff;">Multiscale Representation</strong></td>
+              <td class="metric-highlight">Enhanced Wavelet fidelity across scales</td>
+              <td>Precise physical depiction of convective scales without spatial blurs typical of purely data-driven models.</td>
+            </tr>
+            <tr>
+              <td><strong style="color: #fff;">Hydrology Sector</strong></td>
+              <td class="metric-highlight">Nash-Sutcliffe Efficiency (NSE) &gt; 0.8</td>
+              <td>Accurate streamflow and proactive reservoir operations for flood mitigation in vulnerable river basins.</td>
+            </tr>
+            <tr>
+              <td><strong style="color: #fff;">Solar Energy Sector</strong></td>
+              <td class="metric-highlight">Mean Absolute Error (MAE) &lt; 10%</td>
+              <td>High-confidence solar irradiance forecasts for regional power grid operators and dispatch scheduling.</td>
+            </tr>
+            <tr>
+              <td><strong style="color: #fff;">Air Quality & Fog</strong></td>
+              <td class="metric-highlight">Probability of Detection (POD) &gt; 0.85</td>
+              <td>Robust winter fog guidance for aviation and railway networks, and Indo-Gangetic pollution alerts.</td>
+            </tr>
+            <tr>
+              <td><strong style="color: #fff;">Computational Efficiency</strong></td>
+              <td class="metric-highlight">2&times; to 3&times; faster convergence</td>
+              <td>~70% to 80% reduction in GPU training cost compared to training foundation models from scratch.</td>
+            </tr>
+            <tr>
+              <td><strong style="color: #fff;">Open-Science Interoperability</strong></td>
+              <td class="metric-highlight">Open Model Weights, Code, & APIs</td>
+              <td>FAIR principles compliant (Findable, Accessible, Interoperable, Reusable) national open-science ecosystem.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- TRL Milestones Track -->
+      <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 3rem 0 1.25rem; text-align: center;">
+        Phase-Wise Technology Readiness Levels (TRL)
+      </h3>
+
+      <div class="trl-timeline">
+        <div class="trl-card">
+          <div class="trl-phase-badge">Year 1 &bull; Phase I (TRL 3 &rarr; 4)</div>
+          <h4 class="trl-title">Aurora–W-PINN Hybrid Prototype</h4>
+          <p class="trl-desc">
+            Integration of physics-aware loss modules; deployment of high-performance GPU training infrastructure; baseline benchmarking against raw Aurora.
+          </p>
+        </div>
+
+        <div class="trl-card">
+          <div class="trl-phase-badge">Year 2 &bull; Phase II (TRL 5 &rarr; 6)</div>
+          <h4 class="trl-title">High-Resolution Regional Model (&le; 0.1°)</h4>
+          <p class="trl-desc">
+            Large-scale fine-tuning on IMDAA, IMD, INSAT, and Mission Mausam datasets; rigorous validation for monsoon rainfall, air quality, and cyclogenesis.
+          </p>
+        </div>
+
+        <div class="trl-card">
+          <div class="trl-phase-badge">Year 3 &bull; Phase III (TRL 7 &rarr; 8)</div>
+          <h4 class="trl-title">Open-Science Release & Sectoral Deployment</h4>
+          <p class="trl-desc">
+            Public release of trained model weights, Python APIs, and live visualization dashboards; deployment across hydrology, energy, and disaster agencies.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       COMPUTE & HPC INFRASTRUCTURE
+       ======================================================================== -->
+  <section class="section-wrapper" id="compute" style="background: rgba(11, 21, 40, 0.4);">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">High Performance Computing</span>
+        <h2 class="section-title">HPC & National AI Compute Architecture</h2>
+        <p class="section-subtitle">
+          PRITHVI leverages India’s premier computational infrastructure across the IndiaAI Compute Platform and the National Supercomputing Mission (NSM).
+        </p>
+      </div>
+
+      <div class="compute-grid">
+        
+        <!-- GPU Card -->
+        <div class="compute-card">
+          <h3>
+            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M4 6h16v12H4z M2 4v16h20V4H2zm4 4h4v4H6V8zm6 0h4v4h-4V8z"/></svg>
+            IndiaAI GPU Platform (₹9.00 Crore)
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+            Dedicated to fine-tuning Microsoft Aurora, LoRA rollouts, physics-aware W-PINN sweeps, multi-resolution regional downscaling, and multi-model ensemble rollouts.
+          </p>
+          <ul class="compute-metrics-list">
+            <li class="compute-metric-item">
+              <span class="compute-metric-label">Total Compute Hours:</span>
+              <span class="compute-metric-val">900,000 A100 / H100 GPU-Hours</span>
+            </li>
+            <li class="compute-metric-item">
+              <span class="compute-metric-label">GPU-Side High-Speed Storage:</span>
+              <span class="compute-metric-val">120 TB NVMe Cluster</span>
+            </li>
+            <li class="compute-metric-item">
+              <span class="compute-metric-label">Workload Tasks:</span>
+              <span class="compute-metric-val">150+ PINN runs &bull; Sectoral Integrations</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- CPU HPC Card -->
+        <div class="compute-card">
+          <h3>
+            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
+            National Supercomputing Mission (₹3.80 Cr)
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+            Generates high-fidelity ground-truth training simulations: 0.05° WRF reforecasts, WRF-Solar radiative models, WRF-Hydro routing, and 0.01° extreme event nests.
+          </p>
+          <ul class="compute-metrics-list">
+            <li class="compute-metric-item">
+              <span class="compute-metric-label">Total Core Hours:</span>
+              <span class="compute-metric-val">7,000,000 CPU Core-Hours</span>
+            </li>
+            <li class="compute-metric-item">
+              <span class="compute-metric-label">HPC Storage Capacity:</span>
+              <span class="compute-metric-val">120 TB NSM HPC Archive</span>
+            </li>
+            <li class="compute-metric-item">
+              <span class="compute-metric-label">High-Performance Clusters:</span>
+              <span class="compute-metric-val">NSM Supercomputers &bull; IIT Delhi HPC</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       MODAL: ORIGINAL PROPOSAL FIG 1 SCHEMATIC
+       ======================================================================== -->
+  <div class="modal-overlay" id="schematicModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-window">
+      <button class="modal-close-btn" id="closeModalBtn" aria-label="Close Modal">&times;</button>
+      <h3 id="modalTitle" style="font-size: 1.3rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
+        Fig 1: Sectoral Applications of PRITHVI Regional Foundation Model (Pinnora)
+      </h3>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+        Official schematic excerpt from the funded proposal (File No: ANRF/AISE/2025/001231/AIWCM, Page 9).
+      </p>
+      <div style="background: #ffffff; padding: 12px; border-radius: var(--radius-md); overflow: hidden;">
+        <img src="assets/images/fig1_original_diagram.png" alt="PRITHVI Proposal Figure 1 Workflow Diagram" style="width: 100%; height: auto;">
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       CONTACT & INSTITUTIONAL FOOTER
+       ======================================================================== -->
+  <footer class="prithvi-footer" id="contact">
+    <div class="container">
+      
+      <div class="footer-top-grid">
+        
+        <div class="footer-brand">
+          <h4>PRITHVI Initiative</h4>
+          <p>
+            <strong>Physics-informed RegIonal FoundatioTional High-resolution Model DeVelopment for Indian Sectoral Applications</strong>
+          </p>
+          <p style="margin-top: 0.75rem;">
+            A premier national AI & Earth-System initiative funded under the <strong>AI for Science & Engineering (AI-SE)</strong> program by <strong>ANRF</strong> and <strong>MoES</strong> under <strong>Mission Mausam</strong>.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Quick Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="#vision">Scientific Motivation</a></li>
+            <li><a href="#workflow">Architecture & WPs</a></li>
+            <li><a href="#sectors">Sectoral Impact</a></li>
+            <li><a href="#team">Consortium Team</a></li>
+            <li><a href="#benchmarks">Efficacy Benchmarks</a></li>
+            <li><a href="#compute">Compute (IndiaAI/NSM)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Consortium Leads</h5>
+          <ul class="footer-links">
+            <li><a href="https://cas.iitd.ac.in" target="_blank" rel="noopener noreferrer">IIT Delhi (CAS & DESE)</a></li>
+            <li><a href="https://cds.iisc.ac.in" target="_blank" rel="noopener noreferrer">IISc Bengaluru (CDS)</a></li>
+            <li><a href="https://www.iisermohali.ac.in" target="_blank" rel="noopener noreferrer">IISER Mohali (EES)</a></li>
+            <li><a href="https://www.iitbbs.ac.in" target="_blank" rel="noopener noreferrer">IIT Bhubaneswar</a></li>
+            <li><a href="https://iitpkd.ac.in" target="_blank" rel="noopener noreferrer">IIT Palakkad</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Project Office</h5>
+          <ul class="footer-links">
+            <li><strong style="color: #fff;">Dr. Sarvesh Kumar Dubey (Lead PI)</strong></li>
+            <li>Centre for Atmospheric Sciences</li>
+            <li>Indian Institute of Technology Delhi</li>
+            <li>Hauz Khas, New Delhi 110016</li>
+            <li><a href="mailto:skdubey@cas.iitd.ac.in">skdubey@cas.iitd.ac.in</a></li>
+            <li>Tel: +91 9359539161</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 PRITHVI Research Consortium. Supported by ANRF, MoES, and Mission Mausam.
+        </div>
+        <div>
+          Open Science &bull; Physics-Informed Artificial Intelligence for Earth Systems
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="assets/js/prithvi.js"></script>
+</body>
+</html>
