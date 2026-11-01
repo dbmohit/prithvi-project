@@ -46,13 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
       // Highlight sectoral cards if WP3 is selected
       if (filter === 'wp3') {
         sectorCards.forEach(sc => {
-          sc.style.borderColor = 'var(--prithvi-gold)';
-          sc.style.boxShadow = '0 0 15px rgba(255, 190, 11, 0.3)';
+          sc.style.borderColor = 'var(--color-accent-amber)';
+          sc.style.backgroundColor = '#fffbeb';
         });
       } else {
         sectorCards.forEach(sc => {
           sc.style.borderColor = '';
-          sc.style.boxShadow = '';
+          sc.style.backgroundColor = '';
         });
       }
     });
