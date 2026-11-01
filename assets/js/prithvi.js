@@ -1,10 +1,10 @@
 /**
- * PRITHVI Website - Interactive Logic
- * Flowchart filtering, modals, smooth navigation
+ * PRITHVI Website - Minimalist Scientific Interactive Logic
+ * Pipeline filtering, modal viewer, and mobile navigation
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile Nav Toggle
+  // Mobile Navigation Toggle
   const mobileBtn = document.getElementById('mobileMenuBtn');
   const navMenu = document.getElementById('navMenu');
 
@@ -13,17 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
       navMenu.classList.toggle('active');
     });
 
-    navMenu.querySelectorAll('.nav-link').forEach(link => {
+    navMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
       });
     });
   }
 
-  // Work Package Filter & Flowchart Highlight
-  const filterBtns = document.querySelectorAll('.flowchart-btn');
-  const wpBoxes = document.querySelectorAll('.wp-box');
-  const sectorCards = document.querySelectorAll('.sector-flow-card');
+  // Work Package Pipeline Filter
+  const filterBtns = document.querySelectorAll('.filter-btn, .flowchart-btn');
+  const wpCards = document.querySelectorAll('.wp-card, .wp-box');
+  const sectorNodes = document.querySelectorAll('.sector-mini-node, .sector-flow-card');
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -32,33 +32,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const filter = btn.getAttribute('data-filter');
 
-      wpBoxes.forEach(box => {
-        const boxWp = box.getAttribute('data-wp');
-        if (filter === 'all' || boxWp === filter) {
-          box.style.opacity = '1';
-          box.classList.add('active-filter');
+      wpCards.forEach(card => {
+        const cardWp = card.getAttribute('data-wp');
+        if (filter === 'all' || cardWp === filter) {
+          card.style.opacity = '1';
+          card.classList.add('active-filter');
         } else {
-          box.style.opacity = '0.35';
-          box.classList.remove('active-filter');
+          card.style.opacity = '0.35';
+          card.classList.remove('active-filter');
         }
       });
 
       // Highlight sectoral cards if WP3 is selected
       if (filter === 'wp3') {
-        sectorCards.forEach(sc => {
-          sc.style.borderColor = 'var(--color-accent-amber)';
-          sc.style.backgroundColor = '#fffbeb';
+        sectorNodes.forEach(node => {
+          node.style.borderColor = 'var(--c-teal)';
+          node.style.backgroundColor = '#f0fdfa';
         });
       } else {
-        sectorCards.forEach(sc => {
-          sc.style.borderColor = '';
-          sc.style.backgroundColor = '';
+        sectorNodes.forEach(node => {
+          node.style.borderColor = '';
+          node.style.backgroundColor = '';
         });
       }
     });
   });
 
-  // Proposal Schematic Modal
+  // Schematic Modal (Figure 1)
   const openModalBtn = document.getElementById('openModalBtn');
   const closeModalBtn = document.getElementById('closeModalBtn');
   const schematicModal = document.getElementById('schematicModal');
